@@ -9,12 +9,17 @@ import orderRoutes from "./routes/orders.js";
 import adminRoutes from "./routes/admin.js";
 import categoryRoutes from "./routes/categories.js";
 
-
 dotenv.config();
 
 const app = express();
 
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://the-wooders.vercel.app"
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 // Routes
