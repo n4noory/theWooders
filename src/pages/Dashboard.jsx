@@ -39,10 +39,10 @@ export default function Dashboard() {
     setLoading(true);
     try {
       const [resRes, ordRes] = await Promise.all([
-        fetch("http://localhost:5000/api/reservations/my", {
+        fetch("https://thewooders-production.up.railway.app/api/reservations/my", {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        fetch("http://localhost:5000/api/orders/my", {
+        fetch("https://thewooders-production.up.railway.app/api/orders/my", {
           headers: { Authorization: `Bearer ${token}` },
         }),
       ]);
