@@ -17,7 +17,7 @@ export default function Contact() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("https://thewooders-production.up.railway.app/api/categories")
+    fetch("https://thewooders.onrender.com/api/categories")
       .then(res => res.json())
       .then(data => setCategories(Array.isArray(data) ? data : []))
       .catch(() => {
@@ -56,7 +56,7 @@ export default function Contact() {
     setError("");
     setSuccessMsg("");
     try {
-      const res = await fetch("https://thewooders-production.up.railway.app/api/orders", {
+      const res = await fetch("https://thewooders.onrender.com/api/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         body: JSON.stringify({ ...formData, furnitureType: selectedFurniture.join(", ") }),

@@ -25,7 +25,7 @@ export default function Signup() {
     setLoading(true);
 
     try {
-      const res = await fetch("https://thewooders-production.up.railway.app/api/auth/register", {
+      const res = await fetch("https://thewooders.onrender.com/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -55,7 +55,7 @@ export default function Signup() {
       const result = await signInWithPopup(auth, googleProvider);
       const firebaseUser = result.user;
 
-      const res = await fetch("https://thewooders-production.up.railway.app/api/auth/google", {
+      const res = await fetch("https://thewooders.onrender.com/api/auth/google", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

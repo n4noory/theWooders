@@ -21,7 +21,7 @@ export function ReservationModal({ design, onClose, onSuccess }) {
     setError("");
 
     try {
-      const res = await fetch("https://thewooders-production.up.railway.app/api/reservations", {
+      const res = await fetch("https://thewooders.onrender.com/api/reservations", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

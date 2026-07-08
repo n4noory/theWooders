@@ -32,10 +32,10 @@ export default function AdminDashboard() {
     setLoading(true);
     try {
       const [ordRes, resRes] = await Promise.all([
-        fetch("https://thewooders-production.up.railway.app/api/admin/orders", {
+        fetch("https://thewooders.onrender.com/api/admin/orders", {
           headers: { "admin-key": ADMIN_KEY },
         }),
-        fetch("https://thewooders-production.up.railway.app/api/admin/reservations", {
+        fetch("https://thewooders.onrender.com/api/admin/reservations", {
           headers: { "admin-key": ADMIN_KEY },
         }),
       ]);
@@ -50,7 +50,7 @@ export default function AdminDashboard() {
   // ✅ Fetch categories
   const fetchCategories = async () => {
     try {
-      const res = await fetch("https://thewooders-production.up.railway.app/api/categories");
+      const res = await fetch("https://thewooders.onrender.com/api/categories");
       const data = await res.json();
       setCategories(Array.isArray(data) ? data : []);
     } catch (err) { console.error(err); }
@@ -65,7 +65,7 @@ export default function AdminDashboard() {
     setCategoryLoading(true);
     setCategoryError("");
     try {
-      const res = await fetch("https://thewooders-production.up.railway.app/api/categories", {
+      const res = await fetch("https://thewooders.onrender.com/api/categories", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -97,7 +97,7 @@ export default function AdminDashboard() {
   const deleteCategory = async (id) => {
     if (!window.confirm("Delete this category?")) return;
     try {
-      await fetch(`https://thewooders-production.up.railway.app/api/categories/${id}`, {
+      await fetch(`https://thewooders.onrender.com/api/categories/${id}`, {
         method: "DELETE",
         headers: { "admin-key": ADMIN_KEY },
       });
@@ -109,7 +109,7 @@ export default function AdminDashboard() {
 
   const updateOrderStatus = async (id, status) => {
     try {
-      await fetch(`https://thewooders-production.up.railway.app/api/admin/orders/${id}`, {
+      await fetch(`https://thewooders.onrender.com/api/admin/orders/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json", "admin-key": ADMIN_KEY },
         body: JSON.stringify({ status }),
@@ -122,7 +122,7 @@ export default function AdminDashboard() {
 
   const updateReservationStatus = async (id, status) => {
     try {
-      await fetch(`https://thewooders-production.up.railway.app/api/admin/reservations/${id}`, {
+      await fetch(`https://thewooders.onrender.com/api/admin/reservations/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json", "admin-key": ADMIN_KEY },
         body: JSON.stringify({ status }),

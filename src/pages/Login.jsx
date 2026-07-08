@@ -43,7 +43,7 @@ export default function Login() {
 
     // Normal client login
     try {
-      const res = await fetch("https://thewooders-production.up.railway.app/api/auth/login", {
+      const res = await fetch("https://thewooders.onrender.com/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -74,7 +74,7 @@ export default function Login() {
       const firebaseUser = result.user;
 
       // Backend ko bhejo — JWT token lo
-      const res = await fetch("https://thewooders-production.up.railway.app/api/auth/google", {
+      const res = await fetch("https://thewooders.onrender.com/api/auth/google", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
